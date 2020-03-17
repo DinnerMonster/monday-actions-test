@@ -2,7 +2,7 @@
 def monday_board_get(id):
     boards = ("""
     {
-        boards (ids:%d){
+        boards (ids:%s){
             name
         }
     }
@@ -20,7 +20,7 @@ def monday_board_post(name, kind): #kind = public or private
     return post
 def monday_board_groups(id):
     groups = """mutation {
-    boards (ids: %d) {
+    boards (ids: %s) {
     groups {
     id
     title
@@ -44,7 +44,7 @@ def monday_board_item_get(id):
 def monday_item_get(limit): #gets all items in account.
     items = ("""
         query {
-            items (limit: %d) {
+            items (limit: %s) {
             id
             name
             board {
@@ -59,7 +59,7 @@ def monday_item_get(limit): #gets all items in account.
     return items
 def monday_item_post(id,group_id,item_name):
     post =  (""" mutation {
-    create_item (board_id:%d, group_id: %s, item_name: %s) {
+    create_item (board_id:%s, group_id: %s, item_name: %s) {
     id
     }
     }""") % (id,group_id,item_name)
@@ -68,8 +68,8 @@ def monday_item_post(id,group_id,item_name):
 def monday_board_update_get(id,limit):
     update = ("""
     query {
-        boards(ids:%d) {
-        updates (limit: %d) {
+        boards(ids:%s) {
+        updates (limit: %s) {
         id
         body
             }
@@ -79,9 +79,9 @@ def monday_board_update_get(id,limit):
 def monday_board_update_group_get(id,group_id,limit):
     update = ("""
     query {
-        boards(ids: %d) {
+        boards(ids: %s) {
             groups (ids: %s)
-        updates (limit: %d) {
+        updates (limit: %s) {
         id
         body
                 }
@@ -93,7 +93,7 @@ def monday_board_update_group_get(id,group_id,limit):
 def monday_board_group_get(id):
     group = ("""
     {
-        boards (ids:%d){
+        boards (ids:%s){
             groups {
                 title
                 id

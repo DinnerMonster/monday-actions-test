@@ -1,4 +1,4 @@
-import yaml
+import json
 import os
 import requests
 import monday_api
@@ -19,7 +19,7 @@ class bigData():
     def author_get(self):
         secret = self.authkey
         self.secret = secret
-        get_data = requests.post(self.app, json={'query': self.data }, headers=eval(self.secret)) #may need to create instance variable for {data} to work with Actions, without writing another request variable
+        get_data = requests.post(self.app, data={'query': self.data}, headers=eval(self.secret)) #may need to create instance variable for {data} to work with Actions, without writing another request variable
         print(get_data.status_code)
         print(get_data.text)
         return (get_data.text) #this is a dict & json
@@ -27,7 +27,7 @@ class bigData():
     def author_post(self):
         secret = self.authkey
         self.secret = secret
-        get_data = requests.get(self.app, json={'query': self.data }, headers=eval(self.secret)) #may need to create instance variable for {data} to work with Actions, without writing another request variable
+        get_data = requests.get(self.app, data={'query': self.data}, headers=eval(self.secret)) #may need to create instance variable for {data} to work with Actions, without writing another request variable
         print(get_data.status_code)
         print(get_data.text)
         return (get_data.text)
@@ -35,7 +35,7 @@ class bigData():
 
 
 
-monday_getauth = Authentication(Authentication.monday_auth, Authentication.monday_url,monday_api.monday_boards_items())
+monday_getauth = bigData(bigData.monday_auth, bigData.monday_url, monday_api.monday_board_get('419053564')) #<- for this function only board ID is required.
 monday_getauth.author_get() #this is the monday data
 
 
