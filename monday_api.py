@@ -1,4 +1,4 @@
-
+# All data is type string.
 def monday_board_get(id):
     boards = ("""
     {

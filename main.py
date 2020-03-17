@@ -19,7 +19,7 @@ class bigData():
     def author_get(self):
         secret = self.authkey
         self.secret = secret
-        get_data = requests.post(self.app, data={'query': self.data}, headers=eval(self.secret)) #may need to create instance variable for {data} to work with Actions, without writing another request variable
+        get_data = requests.post(self.app, data={'query': self.data}, headers=eval(self.secret))
         print(get_data.status_code)
         print(get_data.text)
         return (get_data.text) #this is a dict & json
@@ -27,7 +27,7 @@ class bigData():
     def author_post(self):
         secret = self.authkey
         self.secret = secret
-        get_data = requests.get(self.app, data={'query': self.data}, headers=eval(self.secret)) #may need to create instance variable for {data} to work with Actions, without writing another request variable
+        get_data = requests.get(self.app, data={'query': self.data}, headers=eval(self.secret))
         print(get_data.status_code)
         print(get_data.text)
         return (get_data.text)
