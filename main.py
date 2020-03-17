@@ -1,8 +1,6 @@
 import yaml
 import os
 import requests
-import json
-import graphene
 import monday_api
 from dotenv import load_dotenv
 
@@ -37,7 +35,7 @@ class bigData():
 
 
 
-monday_getauth = Authentication(Authentication.monday_auth, Authentication.monday_url,monday_api.monday_boards_items(419051066))
+monday_getauth = Authentication(Authentication.monday_auth, Authentication.monday_url,monday_api.monday_boards_items())
 monday_getauth.author_get() #this is the monday data
 
 

@@ -1,4 +1,3 @@
-#Board ID of Gvoice: 419051066
 
 def monday_board_get(id):
     boards = ("""
